@@ -1,0 +1,12 @@
+.user-box {
+  @apply p-4 bg-white shadow rounded;
+}
+.user-box:hover {
+  @apply bg-gray-100;
+}
+.user-box .nickname {
+  font-style: italic;
+  @apply text-sm text-gray-500;
+}
+
+/*# sourceMappingURL=newpost.css.map */
