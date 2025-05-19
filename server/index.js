@@ -12,7 +12,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password14',
-  database: 'fomo-app'
+  database: 'fomo_app'
 });
 
 db.connect((err) => {
