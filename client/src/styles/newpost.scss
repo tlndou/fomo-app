@@ -1,0 +1,13 @@
+.user-box {
+    @apply p-4 bg-white shadow rounded;
+    
+    &:hover {
+      @apply bg-gray-100;
+    }
+  
+    .nickname {
+      font-style: italic;
+      @apply text-sm text-gray-500;
+    }
+}
+  
