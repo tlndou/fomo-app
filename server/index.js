@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 
 // MySQL Database Connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password14',
+  host: '127.0.0.1',
+  user: 'fomo_user',
+  password: 'fomopassword',
   database: 'fomo_app'
 });
 
