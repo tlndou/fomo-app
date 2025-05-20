@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MapPinIcon, TagIcon } from '@heroicons/react/24/solid';
+import '../styles/stylesheet.scss';
 
 
 const Posts = () => {
@@ -25,18 +26,27 @@ const Posts = () => {
       <ul>
         {posts.map(post => (
           <li key={post.id}>
-            <div className="name-container">
-              <strong>{post.name}</strong> (aka {post.nickname}) <br />
-            </div>
-            <div className="location-container flex flex-row">
-              <div className="location-icon"><MapPinIcon className="h-5 w-5 text-gray-600" /></div>
-              <p className="location" placeholder="location">{post.location}</p>
+            <div className="user-info flex flex-row">
+              <div className="profile-pic-container">
+                {post.profile_pic && (
+                  <img src={post.profile_pic} alt="pfp" className="profile-pic"/>
+                )}
+              </div>
+              <div className='name-location flex flex-col'>
+                <div className="name-container">
+                  <strong>{post.name}</strong> (aka {post.nickname}) <br />
+                </div>
+                <div className="location-container flex flex-row">
+                  <div className="location-icon"><MapPinIcon className="h-5 w-5 text-gray-600" /></div>
+                  <p className="location" placeholder="location">{post.location}</p>
+                </div>
+              </div>
             </div>
             <p>{post.content}</p>
             {post.media_url && (
               <img src={post.media_url} alt="post media" width="200" />
             )}
-            <p><em>Tag: {post.tag}</em></p>
+            <p><em>Tags: {post.tag}</em></p>
             <hr />
           </li>
         ))}
