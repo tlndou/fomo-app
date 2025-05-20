@@ -9,10 +9,10 @@ app.use(bodyParser.json());
 
 // MySQL Database Connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password14',
-  database: 'fomo-app'
+  host: '127.0.0.1',
+  user: 'fomo_user',
+  password: 'fomopassword',
+  database: 'fomo_app'
 });
 
 db.connect((err) => {
@@ -36,16 +36,16 @@ app.get('/posts', (req, res) => {
 
 // Create a new post
 app.post('/posts', (req, res) => {
-  const { name, nickname, location, content, media_url, tag } = req.body;
+  const { name, nickname, location, content, media_url, tag, profile_pic } = req.body;
 
   db.query(
     'INSERT INTO posts (name, nickname, location, content, media_url, tag) VALUES (?, ?, ?, ?, ?, ?)',
-    [name, nickname, location, content, media_url, tag],
+    [name, nickname, location, content, media_url, tag, profile_pic],
     (err, results) => {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.json({ id: results.insertId, name, nickname, location, content, media_url, tag });
+        res.json({ id: results.insertId, name, nickname, location, content, media_url, tag , profile_pic });
       }
     }
   );
